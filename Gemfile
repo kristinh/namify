@@ -14,10 +14,13 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem "ZenTest", "~> 4.7.0"
+  gem "autotest-rails", "~> 4.1.2"
 end
 group :test do
   gem 'cucumber-rails'
   gem 'selenium-webdriver', "~> 2.20.0"
+  gem 'factory_girl', "~> 3.0.0"
   # Pretty printed test output
   gem 'turn', :require => false
 end
