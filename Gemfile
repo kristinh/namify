@@ -14,13 +14,13 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
-  gem "ZenTest", "~> 4.7.0"
-  gem "autotest-rails", "~> 4.1.2"
+  gem 'ZenTest', "~> 4.7.0"
+  gem 'autotest-rails', "~> 4.1.2"
 end
 group :test do
   gem 'cucumber-rails'
   gem 'selenium-webdriver', "~> 2.20.0"
-  gem 'factory_girl', "~> 3.0.0"
+  gem 'factory_girl', "~> 3.1.0"
   # Pretty printed test output
   gem 'turn', :require => false
 end
@@ -28,8 +28,6 @@ group :production do
   gem 'pg'
   gem 'thin'
 end
-
-
 
 
 # Gems used only for assets and not required
@@ -42,6 +40,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'factory_girl_rails', "~> 3.1.0"
+gem 'haml-rails', "~> 0.3.4"
 
 # Use unicorn as the web server
 # gem 'unicorn'
