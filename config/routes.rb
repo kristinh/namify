@@ -1,4 +1,6 @@
 Namify::Application.routes.draw do
+  resources :name_lists
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

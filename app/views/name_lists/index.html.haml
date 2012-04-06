@@ -1,0 +1,23 @@
+%h1 Listing name_lists
+
+%table
+  %tr
+    %th Title
+    %th Names
+    %th Published
+    %th
+    %th
+    %th
+
+  - @name_lists.each do |name_list|
+    %tr
+      %td= name_list.title
+      %td= name_list.names
+      %td= name_list.published
+      %td= link_to 'Show', name_list
+      %td= link_to 'Edit', edit_name_list_path(name_list)
+      %td= link_to 'Destroy', name_list, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Name list', new_name_list_path
