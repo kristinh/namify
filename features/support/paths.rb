@@ -14,7 +14,13 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/name_lists'
+    when /^the details page for "(.*)"$/
+      name_list_path(NameList.find_by_title($1))
+    when /^the new list page$/
+      new_name_list_path
+    when /^the edit page for "(.*)"$/
+      edit_name_list_path(NameList.find_by_title($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -16,6 +16,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'ZenTest', "~> 4.7.0"
   gem 'autotest-rails', "~> 4.1.2"
+  gem 'minitest'
 end
 group :test do
   gem 'cucumber-rails'
