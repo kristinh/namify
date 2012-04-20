@@ -5,10 +5,12 @@
   = @name_list.title
 %p
   %b Names:
-  = @name_list.names
+  = @name_list.names * ", "
 %p
   %b List:
-  = @name_list.list
+  %ul
+    - @name_list.list.each do |name|
+      %li= name * ' '
 %p
   %b Published:
   = @name_list.published

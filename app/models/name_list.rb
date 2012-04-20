@@ -1,13 +1,31 @@
 class NameList < ActiveRecord::Base
+  MIN = 1
+  MAX = 5
   serialize :names
   serialize :list
 
   before_create do
     if !names.nil?  
-      self.names = names.scan(/[[:alpha:]-]+/).map! { |name| name.capitalize }
+      self.names = names.scan(/[[:alpha:]-]+/).map! { |name| name.capitalize }.uniq
     end
 
-    self.list = iterate(self.names,2,2)
+    if !at_least.nil?
+      self.at_least = (at_least >= NameList.never_less_than) ? at_least : NameList.never_less_than
+    end
+
+    if !at_most.nil?
+      self.at_most = (at_most <= NameList.never_more_than) ? at_most : NameList.never_more_than
+    end
+
+    self.list = iterate(self.names,self.at_least,self.at_most)
+  end
+
+  def self.never_more_than
+    MAX
+  end
+
+  def self.never_less_than
+    MIN
   end
 
   def iterate(names,min,max)

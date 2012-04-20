@@ -13,7 +13,10 @@
     = f.label :names
     = f.text_area :names
   .field
-    = f.label :published
-    = f.check_box :published
+    = f.label :at_least
+    = f.text_field :at_least
+  .field
+    = f.label :at_most
+    = f.text_field :at_most
   .actions
     = f.submit 'Save'
