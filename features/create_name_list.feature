@@ -16,7 +16,7 @@ Scenario: create a new list with comma-delimited list
 
 Scenario: create a new list with a name per line
   Given I am on the new list page 
-  When  I add the names "Sabrina\nAmelie, Zenobia"  
+  When  I add the names "Sabrina\\nAmelie, Zenobia"  
   And I add the title "My List"
   And I press "Save"
   Then  I should be on the details page for "My List" 
