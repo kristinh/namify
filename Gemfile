@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.3'
 gem 'bootstrap-sass', '2.0.0'
 
 # Bundle edge Rails instead:
@@ -22,7 +22,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'selenium-webdriver', "~> 2.20.0"
-  gem 'factory_girl', "~> 3.1.0"
+  gem 'factory_girl', "~> 3.1.1"
   # Pretty printed test output
   gem 'turn', :require => false
 end
@@ -36,8 +36,8 @@ end
 # in production environments by default.
 group :assets do
   gem 'therubyracer'
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.2.5"
+  gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
 end
 
