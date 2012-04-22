@@ -2,64 +2,59 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
+  shared_examples_for "all static pages" do
+    it { should have_selector('h1',    text: heading) }
+    it { should have_selector('title', text: full_title(page_title)) }
+  end
+
   describe "Home page" do
+    before { visit root_path }
+    let(:heading)    { 'Namify' }
+    let(:page_title) { '' }
 
-    it "should have the h1 'Namify'" do
-      visit root_path
-      page.should have_selector('h1', :text => 'Namify')
-    end
-
-    it "should have the title 'Home'" do
-      visit root_path 
-      page.should have_selector('title',
-                        :text => "Namify")
-    end
-
-    it "should not have a custom page title" do
-      visit root_path 
-      page.should_not have_selector('title', :text => '| Home')
-    end
+    it_should_behave_like "all static pages"
+    it { should_not have_selector('title', :text => '| Home') }
   end
 
   describe "Help page" do
+    before { visit help_path }
+    let(:heading)    { 'Help' }
+    let(:page_title) { 'Help' }
 
-    it "should have the h1 'Help'" do
-      visit help_path 
-      page.should have_selector('h1', :text => 'Help')
-    end
-
-    it "should have the title 'Help'" do
-      visit help_path 
-      page.should have_selector('title',
-                        :text => "Namify | Help")
-    end
+    it_should_behave_like "all static pages"
   end
 
   describe "About page" do
+    before { visit about_path }
+    let(:heading)    { 'About Us' }
+    let(:page_title) { 'About Us' }
 
-    it "should have the h1 'About Us'" do
-      visit about_path 
-      page.should have_selector('h1', :text => 'About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit about_path 
-      page.should have_selector('title',
-                    :text => "Namify | About Us")
-    end
+    it_should_behave_like "all static pages"
   end
 
   describe "Contact page" do
+    before { visit contact_path }
+    let(:heading)    { 'Contact' }
+    let(:page_title) { 'Contact' }
 
-    it "should have the h1 'Contact'" do
-      visit contact_path
-      page.should have_selector('h1', :text => 'Contact')
-    end
+    it_should_behave_like "all static pages"
+  end
 
-    it "should have the title 'Contact'" do
-      visit contact_path 
-      page.should have_selector('title',
-                    :text => "Namify | Contact")
-    end
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    page.should have_selector 'title', text: full_title('About Us')
+    click_link "Help"
+    page.should have_selector 'title', text: full_title('Help')
+    click_link "Namify"
+    page.should have_selector 'title', text: full_title('')
+    click_link "Contact"
+    page.should have_selector 'title', text: full_title('Contact')
+    click_link "Home"
+    page.should have_selector 'title', text: full_title('')
+    click_link "Make a list"
+    page.should have_selector 'title', text: full_title('')
   end
 end

@@ -1,9 +1,9 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "Namify", '#', id: "logo"
+      = link_to "Namify", root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to "Home", '#'
-          %li= link_to "Help", '#'
-          %li= link_to "Make a list", '#'
+          %li= link_to "Home", root_path
+          %li= link_to "Help", help_path
+          %li= link_to "Make a list", new_name_list_path 
